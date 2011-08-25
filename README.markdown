@@ -37,7 +37,7 @@ Jerl is ready to take a bomb...
 
 ```
 
-##### EPMD is started automatically with any Erlang interpreter, so if there is a live interpreter up, it is already started
+###### _EPMD is started automatically with any Erlang interpreter, so if there is a live interpreter up, it is already started_
 
 * Specify your hostname in 'sopwith_camel.erl'
 
