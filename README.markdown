@@ -9,14 +9,16 @@ The example consists out of two components:
 ### Java Erlang Server => [JerlServer.java](https://github.com/anatoly-polinsky/jerl/blob/master/JerlServer.java)
 
 A very simple "while(true){...}" server that utilizes Erlang built in [Jinterface library](http://www.erlang.org/doc/apps/jinterface/java/index.html) to receive / parse / send messages
+In this example JerlServer does nothing with messages it receives.
 
 ### Erlang Bombardier => [sopwith_camel.erl](https://github.com/anatoly-polinsky/jerl/blob/master/sopwith_camel.erl)
 
-'Sopwith Camel' was a British World War I single-seat biplane fighter that was credited with shooting down 1,294 enemy aircraft, more than any other Allied fighter in the First World War.
+"Sopwith Camel" was a British World War I single-seat biplane fighter that was credited with shooting down 1,294 enemy aircraft, more than any other Allied fighter in the First World War.
 
 The only difference beteen Sopwith Camel fighter and 'sopwith_camel.erl' is the 'sopwith_camel.erl' drops only friendly bombs. Think about each bomb being a soft mood booster, or .. a $100 bill that falls on you right from the sky.
 
 ```erlang
+% recursively drops friendly 'N' bombs ( messages ) to whoever is listening
 bomb_it( 0 )-> ok; 
 bomb_it( N ) -> 
     { jerl, 'jerl@icloudx' } ! { self(), abomb }, 
@@ -25,20 +27,21 @@ bomb_it( N ) ->
 
 ### How Do I Ride the Camel?
 
-* Compile JerlServer, start Erland server node for JerlServer to use and start JerlServer:
+* Compile JerlServer, start Erlang Port Mapper Daemon and start JerlServer:
 
 ```bash
 $ javac -cp .:/usr/local/lib/erlang/lib/jinterface-1.5.4/priv/OtpErlang.jar JerlServer.java 
-$ erl -sname jerl -detached
+$ /usr/local/lib/erlang/bin/epmd &
 $ java -cp .:/usr/local/lib/erlang/lib/jinterface-1.5.4/priv/OtpErlang.jar JerlServer
 Jerl is ready to take a bomb...
 
 ```
 
+##### EPMD is started automatically with any Erlang interpreter, so if there is a live interpreter up, it is already started
+
 * Specify your hostname in 'sopwith_camel.erl'
 
 ```erlang
-bomb_it( 0 )-> ok; 
 bomb_it( N ) -> 
     { jerl, 'jerl@YOUR_HOST_NAME' } ! { self(), abomb }, 
     bomb_it( N-1 ).
@@ -66,4 +69,4 @@ Eshell V5.8.3  (abort with ^G)
 (sopwith_camel@icloudx)9>
 ```
 
-The above time results are in microseconds => roughly I can send 140,000 messages a second from a single Erlang process to a single JerlServer ( MacBook Pro, Dual Core i7 2.8GHz, 8GB RAM )
+The above time results are in microseconds => roughly I can send/dispatch 140,000 messages a second from a single Erlang process to a single JerlServer ( MacBook Pro, Dual Core i7 2.8GHz, 8GB RAM )
