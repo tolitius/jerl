@@ -1,16 +1,16 @@
 # What is "Jerl"? ##
 
-"Jerl" is starting out as a set of simple examples and metrics on Java and Erlang talking to each other.
+"Jerl" is starting out as a set of simple examples and metrics on Java and Erlang talking to each other
 
 ## Sopwith Camel
 
 The example consists out of two components: 
 
-* Java Erlang Server => 'JerlServer.java'
+### Java Erlang Server => [JerlServer.java](https://github.com/anatoly-polinsky/jerl/blob/master/JerlServer.java)
 
-A very simple "while(true){...}" server that utilizes "com.ericsson.otp.erlang.*" Erlang built in "Jinterface" library ["http://www.erlang.org/doc/apps/jinterface/java/index.html"](http://www.erlang.org/doc/apps/jinterface/java/index.html)
+A very simple "while(true){...}" server that utilizes Erlang built in [Jinterface library](http://www.erlang.org/doc/apps/jinterface/java/index.html) to receive / parse / send messages
 
-* Erlang Bombardier => 'sopwith_camel.erl'
+### Erlang Bombardier => [sopwith_camel.erl](https://github.com/anatoly-polinsky/jerl/blob/master/sopwith_camel.erl)
 
 'Sopwith Camel' was a British World War I single-seat biplane fighter that was credited with shooting down 1,294 enemy aircraft, more than any other Allied fighter in the First World War.
 
@@ -23,7 +23,7 @@ bomb_it( N ) ->
     bomb_it( N-1 ).
 ```
 
-### How Do I Try It?
+### How Do I Ride the Camel?
 
 * Compile JerlServer, start Erland server node for JerlServer to use and start JerlServer:
 
