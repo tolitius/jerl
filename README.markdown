@@ -4,8 +4,8 @@
 
 ### Intro
 
-    A simple example on how to send a message form Erlang to Java: [README]()
+A simple example on how to send a message form Erlang to Java: [README](https://github.com/anatoly-polinsky/jerl/blob/master/intro/README.markdown)
 
 ### Bomb Count
 
-    A build up of the "Intro" example that counts received messages on a Java side and sends the count back to the Erlang process: [README]()
+A build up of the "Intro" example that counts received messages on a Java side and sends the count back to the Erlang process: [README](https://github.com/anatoly-polinsky/jerl/blob/master/bomb_count/README.markdown)

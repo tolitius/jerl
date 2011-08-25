@@ -1,8 +1,4 @@
-# What is "Jerl"? ##
-
-"Jerl" is starting out as a set of simple examples and metrics on Java and Erlang talking to each other
-
-## Intro
+## Jerl: Intro Example 
 
 The example consists out of two components: 
 

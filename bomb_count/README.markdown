@@ -1,8 +1,4 @@
-# What is "Jerl"? ##
-
-"Jerl" is starting out as a set of simple examples and metrics on Java and Erlang talking to each other
-
-## Bomb Count
+## Jerl: Bomb Count Example
     
 A build up of the "Intro" example that counts received messages on a Java side and sends the count back to the Erlang process.
 The example consists out of two components: 
